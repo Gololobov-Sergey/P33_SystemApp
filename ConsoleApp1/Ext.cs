@@ -102,6 +102,7 @@ namespace ConsoleApp1
         static public extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
 
-
+        [DllImport("user32.dll")]
+        static public extern SendOrPostCallback SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
     }
 }
