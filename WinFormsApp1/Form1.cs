@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace WinFormsApp1
 {
@@ -9,7 +10,29 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
+            //f();
         }
+
+        void f()
+        {
+            while (true)
+            {
+                Random random = new Random();
+                int r = random.Next(0, 100);
+                for (int i = r; i < (r + 30) && i < 99; i++)
+                {
+                    // BeginInvoke(new Action(() =>
+                    //{
+                    trackBar1.Value = i;
+                    Thread.Sleep(20);
+                    // }));
+
+
+
+                }
+            }
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -43,7 +66,25 @@ namespace WinFormsApp1
                 {
 
                 }
-                
+
+            }
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            f();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if(folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                listBox1.Text = folderBrowserDialog1.SelectedPath;
             }
         }
     }
